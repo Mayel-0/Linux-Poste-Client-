@@ -2,4 +2,4 @@
 
 ## Exercice 1
 
-<img src="/Users/mayel/Desktop/linux/exercice1.png" height="120" width="120"/>
+<img src="/Users/mayel/Desktop/linux/exercice1.png" height="100%" width="100%"/>
