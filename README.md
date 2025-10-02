@@ -93,4 +93,24 @@ et pour me deplacer encore on utliser
 
 ## exercice 1
 
+Dans cette exercice on nous demande de Affichez la liste des processus.
+donc moi j'utlise Htop au lieux de top.
+
+    /htop
+
 <img src="/linux/intermediaire/exercice1/exercice1.1.png" height="100%" width="100%" >
+
+Voici ce qui utilise la plus ma ram on peut le lire grace au %mem on voit que mes Shell sont a 12.2 il sont en premier si on clique sur ShortBy et qu'on trie pour avoir juste la ram (Percent_mem)
+
+<img src="/linux/intermediaire/exercice1/exercice1.2.png" height="100%" width="100%">
+
+Enusite on peut utiliser F8 ou F7 donc Nice - ou Nice + pour choisir la priorité des taches pour notre procésseur
+on peut voir les changement dans le Pri et le NI pour Nice
+
+<img src="/linux/intermediaire/exercice1/exercice1.3.png" height="100%" width="100%">
+
+Ensuite on selectionne la tache que lon veut Kill (F9) ensuite on a plus qu'a send et on peut fermer FireFoxe en utilisant Htop
+
+<img src="/linux/intermediaire/exercice1/exercice1.4.png" height="100%" width="100%">
+
+## exercice 2
