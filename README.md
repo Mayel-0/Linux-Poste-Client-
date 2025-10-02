@@ -30,6 +30,22 @@ et pour finir j'ai utiliser la commande.
 
 Pour cette exercice en premier lieux on nous demande de , Créer un fichier log.txt qui contient la liste des fichiers de /etc . donc on fait cela
 
+pour cela j'utiliser pour me deplacer les commandes
+
+    /ls
+    /cd <nom du dossier>
+    /cd ../
+
+puis je crée mon fichier log.txt
+
+    /touch log.txt
+
+puis j'envoie le resultat de (ls /etc dans le log.txt)
+
+    /ls /etc > log.txt
+
+en utilisant (> ou >>) on indique donc que l'on ajout le resultat de notre commande au debut dans le fichier que l'on selectionne
+
 <img src="/linux/exercice2/exercice2.1.png" height="100%" width="100%">
 
 Vérification :
@@ -40,9 +56,20 @@ Vérification :
 ensuite on nous demande d'Ajoute dans ce fichier les 10 dernières lignes du fichier /var/log/syslog
 donc on fait cela
 
+je regarde les 10 derniers lignes de mon fichier /var/log/syslog
+
+    /tail -n 10 /var/log/syslog
+
+et ensuite on fait pareille que avant en utilisant (>>)
+
 <img src="/linux/exercice2/exercice2.4.png" height="100%" width="100%">
+
+Vérification :
+
 <img src="/linux/exercice2/exercice2.5.png" height="100%" width="100%">
 
 et pour finir on nous demande, Affichez moi seulement les lignes qui contiennent le mot « error » donc on fait
+
+    /grep 'error' <le dossier ou fichier viser>
 
 <img src="/linux/exercice2/exercice2.6.png" height="100%" width="100%">
