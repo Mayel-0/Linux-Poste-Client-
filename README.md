@@ -35,7 +35,7 @@ Pour cette exercice en premier lieux on nous demande de , Créer un fichier log.
 Vérification :
 
 <img src="/linux/exercice2/exercice2.2.png" height="100%" width="100%">
-<img src="/linux/exercice2/exercice2.3.png" height="100%" width="100%">
+<img src="/linux/exercice2/exercice2.3.png" height="60%" width="60%">
 
 ensuite on nous demande d'Ajoute dans ce fichier les 10 dernières lignes du fichier /var/log/syslog
 donc on fait cela
