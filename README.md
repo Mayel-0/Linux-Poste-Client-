@@ -1,5 +1,3 @@
-# Linux Exercice
-
 # Debutant
 
 ## Exercice 1
@@ -26,7 +24,7 @@ et pour finir j'ai utiliser la commande.
 
     /cp Files/fichier1.txt copiefichier1.txt
 
-<img src="/linux/exercice1/exercice1.png" height="100%" width="100%"/>
+<img src="/linux/debutant/exercice1/exercice1.png" height="100%" width="100%"/>
 
 ## Exercice 2
 
@@ -48,12 +46,12 @@ puis j'envoie le resultat de (ls /etc dans le log.txt)
 
 en utilisant (> ou >>) on indique donc que l'on ajout le resultat de notre commande au debut dans le fichier que l'on selectionne
 
-<img src="/linux/exercice2/exercice2.1.png" height="100%" width="100%">
+<img src="/linux/debutant/exercice2/exercice2.1.png" height="100%" width="100%">
 
 Vérification :
 
-<img src="/linux/exercice2/exercice2.2.png" height="100%" width="100%">
-<img src="/linux/exercice2/exercice2.3.png" height="60%" width="60%">
+<img src="/linux/debutant/exercice2/exercice2.2.png" height="100%" width="100%">
+<img src="/linux/debutant/exercice2/exercice2.3.png" height="60%" width="60%">
 
 ensuite on nous demande d'Ajoute dans ce fichier les 10 dernières lignes du fichier /var/log/syslog
 donc on fait cela
@@ -64,17 +62,17 @@ je regarde les 10 derniers lignes de mon fichier /var/log/syslog
 
 et ensuite on fait pareille que avant en utilisant (>>)
 
-<img src="/linux/exercice2/exercice2.4.png" height="100%" width="100%">
+<img src="/linux/debutant/exercice2/exercice2.4.png" height="100%" width="100%">
 
 Vérification :
 
-<img src="/linux/exercice2/exercice2.5.png" height="100%" width="100%">
+<img src="/linux/debutant/exercice2/exercice2.5.png" height="100%" width="100%">
 
 et pour finir on nous demande, Affichez moi seulement les lignes qui contiennent le mot « error » donc on fait
 
     /grep 'error' <le dossier ou fichier viser>
 
-<img src="/linux/exercice2/exercice2.6.png" height="100%" width="100%">
+<img src="/linux/debutant/exercice2/exercice2.6.png" height="100%" width="100%">
 
 ## Exercice 3
 
@@ -89,4 +87,8 @@ et pour me deplacer encore on utliser
     /cd <nom du dossier>
     /cd ../
 
-<img src="/linux/exercice3/exercice3.1.png" height="100%" width="100%">
+<img src="/linux/debutant/exercice3/exercice3.1.png" height="100%" width="100%">
+
+# Intermédiaire
+
+## exercice 1
