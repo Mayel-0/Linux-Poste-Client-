@@ -93,4 +93,4 @@ et pour me deplacer encore on utliser
 
 ## exercice 1
 
-<img src="/linus/intermediaire/exercice1/exercice1.1.png" height="100%" width="100%" >
+<img src="/linus/intermédiaire/exercice1/exercice1.1.png" height="100%" width="100%" >
