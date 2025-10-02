@@ -1,5 +1,7 @@
 # Linux Exercice
 
+# Debutant
+
 ## Exercice 1
 
 Donc pour ce 1er exercie on nous demande simplement de crée un Dossier avec a l'interieur 2 Fichier et un autre Fichier cacher.
@@ -73,3 +75,18 @@ et pour finir on nous demande, Affichez moi seulement les lignes qui contiennent
     /grep 'error' <le dossier ou fichier viser>
 
 <img src="/linux/exercice2/exercice2.6.png" height="100%" width="100%">
+
+## Exercice 3
+
+cette exerice est simple on peut le voir juste avec ce screen on doit crée un fichier secret.txt et il faut que le propriétaire soit le seul a pourvoir écrire et lire ce fichier donc pour ca on decompose en 3 (6, 0, 0) le premier chiffre et pour le propriétaire le second pour le groupe et le dernier pout les aure en fesant cela on repond a l'exercice.
+
+    /chmod 600 secret.txt
+
+et pour me deplacer encore on utliser
+
+    /ls
+    /ls -l (pour afficher les permission)
+    /cd <nom du dossier>
+    /cd ../
+
+<img src="/linux/exercice3/exercice3.1.png" height="100%" width="100%">
