@@ -24,7 +24,7 @@ et pour finir j'ai utiliser la commande.
 
     /cp Files/fichier1.txt copiefichier1.txt
 
-<img src="/exercice1/exercice1.png" height="100%" width="100%"/>
+<img src="/linux/exercice1/exercice1.png" height="100%" width="100%"/>
 
 ## Exercice 2
 
@@ -34,15 +34,15 @@ Pour cette exercice en premier lieux on nous demande de , Créer un fichier log.
 
 Vérification :
 
-<img src="/Ynov/Linux/Linux-Poste-Client-/linux/exercice2/exercice2.2.png" height="60%" width="60%">
-<img src="/Ynov/Linux/Linux-Poste-Client-/linux/exercice2/exercice2.3.png" height="60%" width="60%">
+<img src="/linux/exercice2/exercice2.2.png" height="100%" width="100%">
+<img src="/linux/exercice2/exercice2.3.png" height="100%" width="100%">
 
 ensuite on nous demande d'Ajoute dans ce fichier les 10 dernières lignes du fichier /var/log/syslog
 donc on fait cela
 
-<img src="/Ynov/Linux/Linux-Poste-Client-/linux/exercice2/exercice2.4.png" height="60%" width="60%">
-<img src="/Ynov/Linux/Linux-Poste-Client-/linux/exercice2/exercice2.5.png" height="60%" width="60%">
+<img src="/linux/exercice2/exercice2.4.png" height="100%" width="100%">
+<img src="/linux/exercice2/exercice2.5.png" height="100%" width="100%">
 
 et pour finir on nous demande, Affichez moi seulement les lignes qui contiennent le mot « error » donc on fait
 
-<img src="/Ynov/Linux/Linux-Poste-Client-/linux/exercice2/exercice2.6.png" height="60%" width="60%">
+<img src="/linux/exercice2/exercice2.6.png" height="100%" width="100%">
