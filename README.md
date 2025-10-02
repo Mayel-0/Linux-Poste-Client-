@@ -30,7 +30,7 @@ et pour finir j'ai utiliser la commande.
 
 Pour cette exercice en premier lieux on nous demande de , Créer un fichier log.txt qui contient la liste des fichiers de /etc . donc on fait cela
 
-<img src="/Ynov/Linux/Linux-Poste-Client-/linux/exercice 2/exercice2.1.png" height="60%" width="60%">
+<img src="/Ynov/Linux/Linux-Poste-Client-/linux/exercice 2/exercice2.1.png" height="100%" width="100%">
 
 Vérification :
 
