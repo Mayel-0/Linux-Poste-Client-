@@ -114,3 +114,7 @@ Ensuite on selectionne la tache que lon veut Kill (F9) ensuite on a plus qu'a se
 <img src="/linux/intermediaire/exercice1/exercice1.4.png" height="100%" width="100%">
 
 ## exercice 2
+
+        tar -cf home/mayel/backups/backup-$(date +%Y%m%d).tar home/mayel/Documents
+
+<img src="/linux/intermediaire/exercice2/exercice1.1.png" height="100%" width="100%">
