@@ -140,9 +140,8 @@ pour edité crontab, de la on lui ajout la ligne qui exécute notre backup.sh qu
 
 ## Exercice 3
 
- crée un fichier
+crée un fichier
         touch sshd_failed_logins.txt
-
 on peut tout faire juste avec cette commande
         journalctl -u ssh -S "24 hours ago" | grep -i "failed" >> sshd_failed_logins.txt
 
