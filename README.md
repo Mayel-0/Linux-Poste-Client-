@@ -137,3 +137,19 @@ pour edité crontab, de la on lui ajout la ligne qui exécute notre backup.sh qu
         0 2 * * * /home/mayel/backup.sh
 
 <img src="/linux/intermediaire/exercice2/exercice1.2.png" height="100%" width="100%">
+
+## Exercice 3
+
+ crée un fichier
+        touch sshd_failed_logins.txt
+
+on peut tout faire juste avec cette commande
+        journalctl -u ssh -S "24 hours ago" | grep -i "failed" >> sshd_failed_logins.txt
+
+La 1er partie c'est pour afficher les log
+        journalctl -u ssh -S "24 hours ago"
+
+La deuxieme partie c'est pour afficher les erreur "failed" et les envoyer vers sshd_failed_logins.txt
+        grep -i "failed" >> sshd_failed_logins.txt
+
+<img src="/linux/intermediaire/exercice3/exercice3.1.png" height="100%" width="100%">
