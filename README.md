@@ -115,6 +115,25 @@ Ensuite on selectionne la tache que lon veut Kill (F9) ensuite on a plus qu'a se
 
 ## exercice 2
 
-        tar -cf home/mayel/backups/backup-$(date +%Y%m%d).tar home/mayel/Documents
+        tar -czf "/home/mayel/backups/backup-$(date +%Y%m%d).tar.gz" /home/mayel/Documents
 
 <img src="/linux/intermediaire/exercice2/exercice1.1.png" height="100%" width="100%">
+
+ce que l'on doit faire c'est crée un fichier backup.sh qui contien notre ligne de commande donc la
+
+        tar -czf "/home/mayel/backups/backup-$(date +%Y%m%d).tar.gz" /home/mayel/Documents
+
+et on vas ajouter cela a notre
+
+        crontab -e (édité)
+        crontab -l (afficher)
+
+on lui rajoute le droit d'étre exécuté
+
+        chmod +x /home/mayel/backup.sh
+
+pour edité crontab, de la on lui ajout la ligne qui exécute notre backup.sh qui continent notre ligne de commande qui donc sera exécuté 0 2 = a 2h de matin tou les jours
+
+        0 2 * * * /home/mayel/backup.sh
+
+<img src="/linux/intermediaire/exercice2/exercice1.2.png" height="100%" width="100%">
