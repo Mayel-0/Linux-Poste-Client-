@@ -171,4 +171,4 @@ on ajout notre "Etudiant" dans notre groupe "Projet"
 
         sudo usermod -aG Projet Etudiant
 
-<img src="/linux/avance/exercice1/exercice1.1.png" height="100%" width="100%">
+<img src="/linux/Avance/exercice1/exercice1.1.png" height="100%" width="100%">
