@@ -157,3 +157,18 @@ La deuxieme partie c'est pour afficher les erreur "failed" et les envoyer vers s
         grep -i "failed" >> sshd_failed_logins.txt
 
 <img src="/linux/intermediaire/exercice3/exercice3.1.png" height="100%" width="100%">
+
+# Avancé
+
+## Exercice 1
+
+Pour cette exercice au debut on doit seulment crée un utilisateur avec un répértoire personnel et un groupe
+
+        sudo useradd -m Etudiant
+        sudo groupadd Projet
+
+on ajout notre "Etudiant" dans notre groupe "Projet"
+
+        sudo usermod -aG Projet Etudiant
+
+<img src="/linux/avance/exercice1/exercice1.1.png" height="100%" width="100%">
