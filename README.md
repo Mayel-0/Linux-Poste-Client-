@@ -167,8 +167,202 @@ Pour cette exercice au debut on doit seulment crée un utilisateur avec un rép�
         sudo useradd -m Etudiant
         sudo groupadd Projet
 
-on ajout notre "Etudiant" dans notre groupe "Projet"
+on ajoute notre "Etudiant" dans notre groupe "Projet"
 
         sudo usermod -aG Projet Etudiant
 
 <img src="/linux/Avance/exercice1/exercice1.1.png" height="100%" width="100%">
+
+# TP 1
+
+## 1 Installation et configuration d’un serveur web
+
+On commence par installer **Apache2**, le serveur web le plus utilisé sur Linux.
+Pour cela, on exécute la commande suivante :
+
+    sudo apt update
+    sudo apt install apache2 -y
+
+Une fois installé, on vérifie qu’il fonctionne correctement :
+
+        sudo systemctl enable apache2
+        sudo systemctl start apache2
+        sudo systemctl status apache2
+
+Ensuite, on crée notre page web.
+On remplace le contenu du fichier /var/www/html/index.html par le code qui est présent dans le tp :
+
+On peut maintenant vérifier le fonctionnement du serveur en ouvrant un navigateur et en tapant :
+
+        http://localhost ou http://<IP_DE_LA_VM>.
+
+## 2 Modification du port du serveur
+
+Par défaut, Apache écoute sur le port 80.
+Nous allons le modifier pour qu’il écoute sur le port 8080.
+
+On édite le fichier /etc/apache2/ports.conf :
+
+sudo nano /etc/apache2/ports.conf
+
+On remplace la ligne Listen 80 par Listen 8080.
+
+Ensuite, on édite le fichier /etc/apache2/sites-available/000-default.conf et on modifie :
+
+        <VirtualHost *:80>
+
+par :
+
+        <VirtualHost *:8080>
+
+On redémarre Apache :
+
+        sudo systemctl restart apache2
+
+Le serveur est maintenant accessible sur :
+http://localhost:8080.
+
+## 3 Configuration du pare-feu avec UFW
+
+On installe et configure UFW (Uncomplicated Firewall) pour sécuriser la machine.
+L’objectif est d’autoriser uniquement les ports 22 (SSH) et 8080 (web).
+
+Installation et configuration de base :
+
+        sudo apt install ufw -y
+        sudo ufw default deny incoming
+        sudo ufw default allow outgoing
+
+Autorisation des ports nécessaires :
+
+        sudo ufw allow 22/tcp
+        sudo ufw allow 8080/tcp
+
+Activation du pare-feu :
+
+        sudo ufw enable
+        sudo ufw status
+
+Désormais, seules les connexions SSH et HTTP (sur le port 8080) sont autorisées.
+
+## 4 Sécurisation des connexions SSH
+
+Pour améliorer la sécurité, on empêche la connexion via mot de passe et l’accès root.
+On configure le service SSH pour n’accepter que les connexions par clé SSH.
+
+On édite le fichier /etc/ssh/sshd_config :
+
+        PasswordAuthentication no
+        PubkeyAuthentication yes
+        PermitRootLogin no
+
+Puis on redémarre le service SSH :
+
+sudo systemctl restart ssh
+
+Le serveur SSH est maintenant sécurisé.
+
+# TP 2
+
+## 1 Préparation et configuration du webhook
+
+Avant de commencer la surveillance, on crée un **webhook Discord** sur un serveur dédié aux alertes de sécurité.
+
+### Étapes :
+1. on ouvre le serveur Discord.
+2. Va dans **Paramètres du salon → Intégrations → Webhooks → Nouveau webhook**.
+3. Copie l’**URL du webhook** (elle sera utilisée dans les scripts d’alerte).
+
+---
+
+## 2 Surveillance des accès à des fichiers sensibles
+
+### Objectif :
+Détecter tout accès à un fichier sensible, par exemple :
+`/etc/secret.txt`
+
+### Installation de l’outil de surveillance :
+
+        sudo apt install inotify-tools -y
+
+### Script de surveillance :
+
+On crée un fichier `/usr/local/bin/watch_secret.sh` :
+
+celui ci contiendra donc le code que l'on nous a donner dans le TP
+
+### Explications :
+
+`inotifywait -e open` surveille les ouvertures du fichier.
+
+Lorsqu’un accès est détecté, une alerte Discord est envoyée via curl.
+
+On rend le script exécutable :
+
+        sudo chmod +x /usr/local/bin/watch_secret.sh
+
+
+Et on le lance en arrière-plan :
+
+        nohup /usr/local/bin/watch_secret.sh &
+
+## Surveillance des connexions SSH hors des horaires de bureau
+Objectif :
+
+Détecter toute connexion SSH en dehors des heures de bureau (9h00 à 18h00).
+
+Script de surveillance :
+
+On crée le fichier /usr/local/bin/check_ssh.sh :
+
+#!/bin/bash
+WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
+
+# Heure actuelle (format 24h)
+CURRENT_HOUR=$(date +%H)
+
+# On définit les horaires de bureau
+START_HOUR=9
+END_HOUR=18
+
+# Si l'heure n'est pas dans la plage, on vérifie les connexions SSH récentes
+if [ "$CURRENT_HOUR" -lt "$START_HOUR" ] || [ "$CURRENT_HOUR" -ge "$END_HOUR" ]; then
+  # Recherche des connexions SSH récentes (dernières 5 minutes)
+  if journalctl -u ssh -S -5m | grep "Accepted password" >/dev/null; then
+    curl -H "Content-Type: application/json" \
+         -X POST \
+         -d "{\"content\": \"⚠️ Connexion SSH détectée en dehors des horaires de bureau !\"}" \
+         $WEBHOOK_URL
+  fi
+fi
+
+
+On rend le script exécutable :
+
+        sudo chmod +x /usr/local/bin/check_ssh.sh
+
+## 4 Automatisation avec cron pour une surveillance continue
+Objectif :
+
+Automatiser la surveillance en continu à l’aide de cron.
+
+Configuration :
+
+On édite la table cron :
+
+        sudo crontab -e
+
+
+Et on ajoute ces lignes :
+
+# Lancer la surveillance du fichier secret au démarrage
+@reboot nohup /usr/local/bin/watch_secret.sh &
+
+# Vérifier les connexions SSH toutes les 5 minutes
+*/5 * * * * /usr/local/bin/check_ssh.sh
+
+Vérification :
+
+Pour voir si les tâches sont bien actives :
+
+        sudo crontab -l
